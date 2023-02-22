@@ -56,3 +56,24 @@ exports.singleuserget = async (req, res) => {
       res.status(401).json(error);
     }
   };
+//user edit
+  exports.useredit = async (req, res) => {
+    const { id } = req.params;
+    const {userName, email, mobile, address,user_profile,} = req.body;
+    const file = req.file ? req.file.filename : user_profile;
+  
+    const dateUpdated = moment(new Date()).format("YYYY-MM-DD hh:mm:ss");
+  
+    try {
+      const updateuser = await users.findByIdAndUpdate( { _id: id },
+        { userName, email, mobile, address,profile: file,dateUpdated,},
+        {
+          new: true,
+        }
+      );
+      await updateuser.save();
+      res.status(200).json(updateuser);
+    } catch (error) {
+      res.status(401).json(error);
+    }
+  }
