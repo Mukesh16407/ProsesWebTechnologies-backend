@@ -3,16 +3,13 @@ const validator = require("validator");
 
 const usersSchema = new mongoose.Schema({
 
-    fname: {
+    userName: {
         type: String,
         required: true,
+        unique: true,
         trim: true
     },
-    lname: {
-        type: String,
-        required: true,
-        trim: true
-    },
+    
     email: {
         type: String,
         required: true,
@@ -35,7 +32,7 @@ const usersSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    location: {
+    address: {
         type: String,
         required: true,
     },
