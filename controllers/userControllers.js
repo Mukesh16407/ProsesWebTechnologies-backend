@@ -29,3 +29,17 @@ exports.userpost = async (req, res) => {
         console.log("catch block error");
       }    
 }
+
+// usersget
+
+exports.userget = async (req, res) => {
+    try{
+        const userData = await users.find();
+        
+        res.status(200).json({
+            userData,
+          });
+    }catch(error){
+        res.status(401).json(error);
+    }
+}
