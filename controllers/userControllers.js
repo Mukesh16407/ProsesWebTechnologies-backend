@@ -77,3 +77,15 @@ exports.singleuserget = async (req, res) => {
       res.status(401).json(error);
     }
   }
+
+//delete user
+
+exports.userdelete = async (req, res) => {
+    const { id } = req.params;
+    try {
+      const deletuser = await users.findByIdAndDelete({ _id: id });
+      res.status(200).json(deletuser);
+    } catch (error) {
+      res.status(401).json(error);
+    }
+  };
