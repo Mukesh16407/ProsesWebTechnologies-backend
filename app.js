@@ -4,13 +4,13 @@ const mongoose = require("mongoose");
 mongoose.set("strictQuery", true);
 
 const router = require('./Routes/router');
+const port =process.env.PORT || 6010;
 require('./db/dbConfig')
 
 const app = express();
 
 const cors = require('cors');
 
-const port =process.env.PORT || 6010;
 
 app.use(cors());
 app.use(express.json());
