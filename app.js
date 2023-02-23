@@ -8,10 +8,7 @@ require('./db/dbConfig')
 
 const app = express();
 
-
-
 const cors = require('cors');
-
 
 const port =process.env.PORT || 6010;
 
